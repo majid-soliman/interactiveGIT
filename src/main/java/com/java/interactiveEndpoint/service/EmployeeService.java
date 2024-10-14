@@ -33,8 +33,8 @@ public class EmployeeService {
     	      return dao.updateEmployee(reqMap);
    } 
     
-    public int deleteEmployee(Map<String, Object> reqMap) {
-	    return dao.deleteEmployee(reqMap);   
+    public int deleteEmployee(int id) {
+	    return dao.deleteEmployee(id);   
 } 
     
 	

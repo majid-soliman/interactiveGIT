@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.java.interactiveEndpoint.dao.DepartmentsDAO;
 import com.java.interactiveEndpoint.dao.EmployeesDAO;
@@ -31,8 +32,8 @@ public class DepartmentService {
     	      return dao.updateDepartment(reqMap);
    } 
     
-    public int deleteDepartment(Map<String, Object> reqMap) {
-	    return dao.deleteDepartment(reqMap);   
+    public int deleteDepartment(int id) {
+	    return dao.deleteDepartment(id);   
 } 
     
 	

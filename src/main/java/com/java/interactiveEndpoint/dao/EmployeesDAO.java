@@ -53,8 +53,8 @@ public class EmployeesDAO {
 	
 	//Delete Employee
 	@Transactional
-	public int deleteEmployee(Map<String, Object> reqMap) {
-	   return repo.deleteByQuery(Integer.parseInt(reqMap.get("empId").toString()));
+	public int deleteEmployee(int id) {
+	   return repo.deleteByQuery(id);
 	}
 	
 	

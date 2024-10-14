@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.java.interactiveEndpoint.service.DepartmentService;
@@ -33,11 +34,11 @@ public class DepartmentController {
      return service.updateDepartment(reqMap);		
     }
 	
-	@DeleteMapping("/DeleteDepartment")
-	public int deleteDepartment(@RequestBody Map<String, Object> reqMap){
-     return service.deleteDepartment(reqMap);
+	@DeleteMapping("/deleteDepartment")
+	public int deleteDepartment(@RequestParam int id){
+     return service.deleteDepartment(id);
 				
     }
-
+	
 
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.java.interactiveEndpoint.service.EmployeeService;
@@ -31,9 +32,9 @@ public class EmployeeController {
      return service.updateEmployee(reqMap);		
     }
 	
-	@DeleteMapping("/DeleteEmployee")
-	public int deleteEmployee(@RequestBody Map<String, Object> reqMap){
-     return service.deleteEmployee(reqMap);
+	@DeleteMapping("/deleteEmployee")
+	public int deleteEmployee(@RequestParam int id){
+     return service.deleteEmployee(id);
 				
     }
 
