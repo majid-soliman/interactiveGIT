@@ -2,6 +2,7 @@ package com.java.interactiveEndpoint.service;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,10 @@ public class EmployeeService {
     public int deleteEmployee(int id) {
 	    return dao.deleteEmployee(id);   
 } 
+    
+    public List<Employees> getAllEmployees(Integer pageNo, Integer pageSize){
+    	return dao.getAllEmployees(pageNo, pageSize);
+    }
     
 	
 	

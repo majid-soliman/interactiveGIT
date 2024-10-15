@@ -1,9 +1,15 @@
 package com.java.interactiveEndpoint.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +22,7 @@ public class EmployeesDAO {
 
 	@Autowired
 	EmployeesRepo repo;
+	
 	
 	public Map<String, Object> saveEmployee(Employees emp) {
 		Map<String, Object> resMap =new HashMap<String,Object>();
@@ -57,6 +64,18 @@ public class EmployeesDAO {
 	   return repo.deleteByQuery(id);
 	}
 	
+	//Pagenation select
+	public List<Employees> getAllEmployees(Integer pageNo, Integer pageSize)
+	    {  Pageable paging = PageRequest.of(pageNo, pageSize);
+
+	        Page<Employees> pagedResult = repo.findAll(paging);
+
+	        if(pagedResult.hasContent()) {
+	            return pagedResult.getContent();
+	        } else {
+	            return new ArrayList<Employees>();
+	        }
+	    }
 	
 	
 	

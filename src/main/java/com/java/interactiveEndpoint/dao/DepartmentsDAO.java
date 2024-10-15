@@ -1,14 +1,21 @@
 package com.java.interactiveEndpoint.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
 import com.java.interactiveEndpoint.exceptions.*;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.java.interactiveEndpoint.ent.Department;
+import com.java.interactiveEndpoint.ent.Employees;
 import com.java.interactiveEndpoint.repo.DepartmentsRepo;
 
 @Component
@@ -56,6 +63,20 @@ public class DepartmentsDAO {
 	public int deleteDepartment(int departmentId) {
 	   return repo.deleteByQuery(departmentId);
 	}
+	
+	//Pagenation select
+		public List<Department> getAllDepartments(Integer pageNo, Integer pageSize)
+		    {  Pageable paging = PageRequest.of(pageNo, pageSize);
+
+		        Page<Department> pagedResult = repo.findAll(paging);
+
+		        if(pagedResult.hasContent()) {
+		            return pagedResult.getContent();
+		        } else {
+		            return new ArrayList<Department>();
+		        }
+		    }
+
 	
 	
 	
