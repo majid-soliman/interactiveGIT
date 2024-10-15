@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,11 +25,28 @@ public class Employees {
 	 
 	 @Column(name = "department_id")
 	 private int departmentId;
+	 
 	 private double salary;
 	 private String position;
 	 private Date createDate;
 	 private String createdBy;
 	 private Date updateDate;
+	
+	 
+	 @ManyToOne
+	 @JoinColumn(name = "department_id" , referencedColumnName = "id"
+	 , insertable=false, updatable=false)
+	 Department departments;
+	  
+	 
+	 public Department getDepartments() {
+		return departments;
+	}
+
+	public void setDepartments(Department departments) {
+		this.departments = departments;
+	}
+
 	 
 	 public Employees() {
 		 

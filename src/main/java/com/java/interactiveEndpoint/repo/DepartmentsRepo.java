@@ -1,5 +1,7 @@
 package com.java.interactiveEndpoint.repo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -15,5 +17,5 @@ public interface DepartmentsRepo extends PagingAndSortingRepository<Department, 
      @Transactional
      @Query("DELETE FROM Department dep WHERE dep.id = :id")
      int deleteByQuery(@Param("id") int id);
-
+	 
 }

@@ -69,7 +69,7 @@ public class DepartmentsDAO {
 		    {  Pageable paging = PageRequest.of(pageNo, pageSize);
 
 		        Page<Department> pagedResult = repo.findAll(paging);
-
+		        
 		        if(pagedResult.hasContent()) {
 		            return pagedResult.getContent();
 		        } else {
@@ -77,7 +77,8 @@ public class DepartmentsDAO {
 		        }
 		    }
 
-	
+		
+		
 	
 	
 	

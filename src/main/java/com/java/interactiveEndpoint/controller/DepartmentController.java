@@ -47,6 +47,7 @@ public class DepartmentController {
 				
     }
 	
+	
 	 @GetMapping("/getAllDepartments")
 	    public ResponseEntity<List<Department>> getAllDepartments(
 	    @RequestParam(defaultValue = "0") Integer pageNo,
